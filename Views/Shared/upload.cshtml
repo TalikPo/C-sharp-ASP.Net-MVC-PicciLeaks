@@ -1,0 +1,29 @@
+﻿@model PicciLeaksModels.Picture
+
+@{
+    ViewData["Title"] = "Upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Upload your pics here...</h4>
+<hr />
+<div class="row">
+    <div class="col-md-5">
+        <form asp-controller="Gallery" asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FileName" class="control-label">Select a multimedia file</label>
+                <input asp-for="FileName" name="fileToServer" class="form-control" type="file"/>
+                <span asp-validation-for="FileName" class="text-danger"></span>
+            </div>
+            <br/>
+            <div class="form-group">
+                <input type="submit" value="Upload" class="btn btn-outline-secondary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

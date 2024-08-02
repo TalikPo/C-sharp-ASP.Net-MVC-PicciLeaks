@@ -1,0 +1,34 @@
+﻿@model List<PicciLeaksModels.Picture>
+
+<div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="btn-group">
+                    <button type="button" class="btn selectBtn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                        Album
+                    </button>
+                    <ul class="dropdown-menu" id="pictureSelectionId" onclick="onSelectedPicture(event)">
+                        @foreach (PicciLeaksModels.Picture item in @Model)
+                        {
+                            <li class="dropdown-item" id="@item.Id">@item.FileName.Split('.')[0]</li>
+                        }
+                    </ul>
+                </div>
+                <div id="showPicturesDivId" style="width:300px; height:400px; margin-top:15px; overflow:hidden;">
+                    <a id="downloadPictureAId">
+                        <img id="displayPictureImgId" src="" alt="" style="width:auto; height:auto; max-width: 100%; max-height: 100%;" />
+                    </a>
+                </div>
+                <div style="width:300px; height:30px; margin-top:15px;">
+                    <h6 id="fileSizeHId"></h6>
+                    <h6 id="loadedAtHId"></h6>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="displayPicturesDivId" style="padding-top: 50px;"></div>
+            </div>
+        </div>
+    </div>
+    
+</div>

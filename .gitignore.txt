@@ -1,0 +1,4 @@
+wwwroot/css/
+wwwroot/images/
+wwwroot/lib
+appsettings*.json
